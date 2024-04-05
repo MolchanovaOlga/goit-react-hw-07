@@ -1,13 +1,13 @@
 import css from './ContactList.module.css';
 import Contact from '../Contact/Contact';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContactItems, getFilterName } from '../../redux/selectors';
-import { deleteContact } from '../../redux/contactsSlice';
+import { selectContactItems, selectFilterName } from '../../redux/selectors';
+import { deleteContact } from '../../redux/contacts0ps';
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const selectContacts = useSelector(getContactItems);
-  const getFilterVal = useSelector(getFilterName);
+  const selectContacts = useSelector(selectContactItems);
+  const getFilterVal = useSelector(selectFilterName);
 
   const arrFilterContacts = selectContacts.filter(contact =>
     contact.name.toLowerCase().includes(getFilterVal.toLowerCase().trim())
